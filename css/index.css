@@ -51,3 +51,22 @@ body{
   height: 120px;
   border-radius: 100%;
 }
+
+.user-contacts{
+  background: lightgrey;
+  height:100vh;
+  overflow: auto;
+  border-radius: 0px 0px 20px 20px;  
+}
+
+.user-contacts--items {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 3px;
+  border-bottom: 1px grey solid;
+}
+
+.user-contacts--items--avatar, .message-received--sender{
+  margin-top: 5px;
+}
