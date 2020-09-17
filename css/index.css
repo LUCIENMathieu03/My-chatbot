@@ -6,3 +6,48 @@ Reset
 /*
 Comments
 */
+
+body{
+  display: flex;
+  justify-content: center;
+  font-family: system-ui;
+  background-color: #F5F5DC;
+}
+
+.chatbot{
+  display: flex;
+  align-items: center;
+  width:100%
+}
+
+.header-and-contact{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 90vh;	
+  z-index: 1;
+  margin-left: 10px;
+  background: lightgrey
+}
+
+.user-profile{
+  display: flex;
+  flex-direction : column;
+  background-color:grey;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 0px 0px ;
+  z-index:1;
+
+}
+
+.user-profile--name{
+  margin-top: 5px;
+}
+
+.user-profile--picture img{
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+}
