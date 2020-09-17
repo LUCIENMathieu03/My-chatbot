@@ -94,3 +94,10 @@ body{
   border-radius: 100%;
   margin-left: 10px;
 }
+
+.right-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
