@@ -71,6 +71,14 @@ body{
   margin-top: 5px;
 }
 
+.user-contacts li{
+  list-style-type: none;
+}
+
+.user-contacts--items--name, .message-received--sender-name{
+  margin-left: 15px;
+}
+
 .contact-search-bar
 {
 	display: flex;
@@ -78,4 +86,11 @@ body{
 	margin-top: 10px;
 	height: 30px;
 	border-bottom: 1px solid grey;
+}
+
+.user-contacts--items--avatar img, .message-received--sender img{
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  margin-left: 10px;
 }
