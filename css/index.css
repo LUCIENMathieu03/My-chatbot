@@ -14,7 +14,7 @@ body{
   background-color: #F5F5DC;
 }
 
-.chatbot{
+.chatbot-app{
   display: flex;
   align-items: center;
   width:100%
