@@ -27,7 +27,6 @@ body{
   height: 90vh;	
   z-index: 1;
   margin-left: 10px;
-  background: lightgrey
 }
 
 .user-profile{
@@ -67,6 +66,12 @@ body{
   border-bottom: 1px grey solid;
 }
 
+.user-contacts::-webkit-scrollbar {
+    display: none;
+}
+
+
+
 .user-contacts--items--avatar, .message-received--sender{
   margin-top: 5px;
 }
@@ -83,9 +88,10 @@ body{
 {
 	display: flex;
 	justify-content: center;
-	margin-top: 10px;
+	padding-top: 10px;
 	height: 30px;
 	border-bottom: 1px solid grey;
+	background: lightgrey
 }
 
 .user-contacts--items--avatar img, .message-received--sender img{
@@ -111,6 +117,7 @@ body{
   height: 90vh;
   overflow: auto;
 }
+
 .right-container--chat::-webkit-scrollbar {
     display: none;
 }
