@@ -38,7 +38,6 @@ body{
   align-items: center;
   border-radius: 20px 20px 0px 0px ;
   z-index:1;
-
 }
 
 .user-profile--name{
@@ -57,6 +56,19 @@ body{
   overflow: auto;
   border-radius: 0px 0px 20px 20px;  
 }
+.user-contacts::-webkit-scrollbar {
+    display: none;
+}
+
+.contact-search-bar
+{
+	display: flex;
+	justify-content: center;
+  padding-top: 10px;
+	height: 40px;
+	border-bottom: 1px solid grey;
+  background: lightgrey
+}
 
 .user-contacts--items {
   display: flex;
@@ -66,14 +78,15 @@ body{
   border-bottom: 1px grey solid;
 }
 
-.user-contacts::-webkit-scrollbar {
-    display: none;
-}
-
-
-
 .user-contacts--items--avatar, .message-received--sender{
   margin-top: 5px;
+}
+
+.user-contacts--items--avatar img, .message-received--sender img{
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  margin-left: 10px;
 }
 
 .user-contacts li{
@@ -84,28 +97,12 @@ body{
   margin-left: 15px;
 }
 
-.contact-search-bar
-{
-	display: flex;
-	justify-content: center;
-	padding-top: 10px;
-	height: 30px;
-	border-bottom: 1px solid grey;
-	background: lightgrey
-}
-
-.user-contacts--items--avatar img, .message-received--sender img{
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  margin-left: 10px;
-}
-
-.right-container{
+.chat-and-input{
   display: flex;
   flex-direction: column;
   width: 100%;
 }
+
 .message-received--sender{
   height: 100%;
   display: flex;
@@ -113,20 +110,37 @@ body{
   align-items: center;
 }
 
-.right-container--chat{
+.chat{
   height: 90vh;
   overflow: auto;
 }
 
-.right-container--chat::-webkit-scrollbar {
+.chat::-webkit-scrollbar {
     display: none;
 }
 
-.right-container-chat-input form{
+.input form{
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 10vh;
+}
+
+.textInputArea{
+  width: 75%;
+  height:  60%;
+  border:1px solid lightgrey; 
+  border-radius: 100px 100px;
+  outline: none;
+}
+
+.submitButton{
+  width: 20%;
+  height:  60%;
+  border-radius: 100px 100px;
+  float: left;
+  border:1px solid lightgrey; 
+  outline: none;
 }
 
 .message-received,.message-sent {
@@ -158,26 +172,26 @@ body{
 .message-received{
   clear: both;
 }
+
 .message-sent p, .message-received p{
   display: flex;
   flex-wrap: wrap;
   margin: 7px;
 }
 
-.textInputArea{
-  width: 75%;
-  height:  60%;
-  border:1px solid lightgrey; 
-  border-radius: 100px 100px;
-  outline: none;
-}
+@media all and (max-width: 990px){
 
-.submitButton{
-  width: 20%;
-  height:  60%;
-  border-radius: 100px 100px;
-  float: left;
-  border:1px solid lightgrey; 
-  outline: none;
-}
+  .chatbot-app{
+    flex-direction: column;
+  }
 
+  .header-and-contact{
+    width: 70%;
+  }
+
+  .chat-and-input{
+  margin-top: 15px;
+  border-top: 1px dashed black;
+  }
+
+}
