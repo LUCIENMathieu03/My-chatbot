@@ -4,6 +4,7 @@
   <meta charset="utf-8"/>
   <title>Chatbot</title>
   <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
@@ -28,8 +29,6 @@
             Arya Stark
           </h3>
         </div>
-      </div>
-      <div class="contact-users">
         <div class="contact-users-item">
           <div class="contact-users-avatar" style="background-image: url('https://pbs.twimg.com/profile_images/1338985026/Picture_1_400x400.png')">    
           </div>
@@ -39,6 +38,10 @@
         </div>
       </div>
     </div>
+    <div class="toggle-contact" onclick="toggleSideBar()">
+      <i class="fas fa-angle-double-right"></i>
+    </div>
+    <!-- Chat -->
     <div class="chat-container">
       <div class="chat-header">
         <div class="chat-header-avatar" style="background-image: url('https://pbs.twimg.com/profile_images/1338985026/Picture_1_400x400.png')"></div>
@@ -73,61 +76,13 @@
       </div>
       <div class="chat-input-container">
         <input class="chat-input" placeholder="Write your message ..." />
-        <button class="chat-input-send">Send</button>
+        <div class="chat-input-send">
+          <i class="fas fa-arrow-right"></i>
+        </div>
       </div>
-    </div> 
-    <!--  <section class="chat">
-         <div class="message-received">
-          <div class="message-received--sender">
-                <img src="https://i.pinimg.com/originals/fd/29/9c/fd299c3743a9679df23f110daf575ee4.jpg" alt="Contact avatar"/>
-                <span class="message-received--sender--name">Aria Stark</span>
-            </div>  
-          <div class="message-received-header">
-            <div class="information-of-message">
-              <span class="date-message">16-09-20</span>
-              <span class="time-message">09:31</span>
-            </div>
-          </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            </p>
-        </div>
-        <div class="message-sent">
-          <div class="message-sent-header">
-            <span class="message-sent-header-name">Me:</span>
-            <div class="information-of-message">
-              <span class="date-message">16-09-20</span>
-              <span class="time-message">09:42</span>
-            </div>
-          </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
-            </p>
-        </div>
-        <div class="message-received">
-          <div class="message-received--sender">
-                <img src="https://i.pinimg.com/originals/fd/29/9c/fd299c3743a9679df23f110daf575ee4.jpg" alt="Contact avatar"/>
-                <span class="sender-name">Aria Stark</span>
-            </div>  
-          <div class="message-received-header">
-            <div class="information-of-message">
-              <span class="dateMessage">16-09-20</span>
-              <span class="timeMessage">09:31</span>
-            </div>
-          </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            </p>
-        </div>
-      </section>
-      <section class="input">
-        <form >
-          <input class="textInputArea" type="text" name=  "message" placeholder=" Write your message" style="font-size: 15px"/>
-          <input class="submitButton" type="submit" value="Send" style="font-size: 15px"/>
-        </form>
-      </section>
-    </div>-->
+    </div>
   </div>
   <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/sidebar.js"></script>
 </body>
 </html>

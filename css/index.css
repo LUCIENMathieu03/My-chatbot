@@ -16,7 +16,7 @@ body, html {
 .chatbot-app {
   display: flex;
   width: 95vw;
-  height: 95vh;
+  height: 37.5em;
   background-color: #FFF;
   border-radius: 1.5em;
   overflow: hidden;
@@ -31,12 +31,14 @@ body, html {
 .contact-container {
   width: 25%;
   height: 100%;
-  background-color: #FFF
+  background-color: #FFF;
+  display: block;
 }
 
 .contact-header {
   padding: 1em;
   padding-left: 1.5em;
+  width: 100%;
 }
 
 .contact-header > h2 {
@@ -57,7 +59,7 @@ body, html {
 }
 
 .contact-searchbar-input {
-  width: 14em;
+  width: 100%;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #000;
@@ -77,10 +79,15 @@ body, html {
   align-items: center;
 }
 
+.contact-users {
+  width: 100%;
+}
+
 .contact-users-item {
   width: 100%;
   display: flex;
   padding: 1em 1em;
+  width: 14em;
 }
 
 .contact-users-item:hover {
@@ -100,6 +107,7 @@ body, html {
   font-weight: 700;
   display: flex;
   align-items: center;
+  width: 8em;
 }
 
 .user-contacts--items {
@@ -107,6 +115,10 @@ body, html {
   align-items: center;
   margin-top: 10px;
   padding: 3px;
+}
+
+.toggle-contact {
+  display: none;
 }
 
 /***************************************
@@ -184,7 +196,7 @@ body, html {
 }
 
 .messages-item--received {
-  background-color: #B8B8B8;
+  background-color: #D8D8D8;
   text-align: left;
   border-radius: 1.5em 1.5em 1.5em 0;
 }
@@ -199,9 +211,11 @@ body, html {
 .chat-input-container {
   width: 100%;
   height: 8%;
-  background-color: #D8D8D8;
+  background-color: #FFF;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  padding-right: 2em;
 }
 
 .chat-input {
@@ -210,20 +224,20 @@ body, html {
   outline: none;
   border: none;
   border-radius: 1.5em;
-  margin-left: 2em;
+  background-color: #EEE;
+  width: 60%;
+  padding-left: 2em;
 }
 
-@media all and (max-width: 990px) {
-  .chatbot-app{
-    flex-direction: column;
-  }
+.chat-input-send {
+  background-color: #C4FF33;
+  color: #FFF;
+  border-radius: 100%;
+  padding: 0.3em;
+  font-size: 1.2em;
+  margin-left: 0.7em;
+}
 
-  .header-and-contact{
-    width: 70%;
-  }
-
-  .chat-and-input{
-  margin-top: 15px;
-  border-top: 1px dashed black;
-  }
+.chat-input-send:hover {
+  background-color: #A7D92B;
 }

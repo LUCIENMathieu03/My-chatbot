@@ -1,0 +1,42 @@
+@media screen and (max-width: 990px) {
+  .chatbot-app {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  html, body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .chatbot-app {
+    position: relative;
+  }
+
+  .contact-container {
+    display: none;
+  }
+
+  .chat-container {
+    width: 100%;
+  }
+
+  .toggle-contact {
+    display: block;
+    position: absolute;
+    left: 0.5em;
+    top: 1em;
+    background-color: #C4FF33;
+    color: #FFF;
+    border-radius: 100%;
+    padding: 0.3em;
+    font-size: 1.2em;
+    z-index: 100;
+  }
+}
