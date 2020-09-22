@@ -29,6 +29,10 @@ function getInputValue() {
   let inputValue = input.value;
 
   input.value = "";
+  var computerScore = document.querySelector('.notifPop');
+  var number = computerScore.innerHTML;
+  number++;
+  computerScore.innerHTML = number;
   return inputValue;
 }
 
@@ -145,7 +149,11 @@ function displayBots() {
                 <h3 class="contact-users-name">
                   ${bot.name}
                 </h3>
-              </div>`;
+              <div class="popUp">
+                <span class="notifPop">0</span>
+                </div>
+                </div>
+               `;
 
     id++;
     return str;

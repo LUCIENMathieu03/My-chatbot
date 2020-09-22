@@ -271,3 +271,18 @@ body, html {
     transform: translateX(0);
   }
 }
+.notifPop {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+}
+
+.popUp {
+  border-radius: 100%;
+  width: 20px;
+  background: red;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+}
