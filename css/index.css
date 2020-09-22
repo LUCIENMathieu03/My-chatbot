@@ -192,12 +192,14 @@ body, html {
 
 .messages-item--received {
   text-align: left;
+  align-self: flex-start;
 }
 
 .messages-item--received > p {
   border-radius: 1.5em 1.5em 1.5em 0;
   background-color: #EEE;
   padding: 0.7em 1.2em;
+  width: max-content;
 }
 
 .messages-item--sent {
@@ -209,6 +211,8 @@ body, html {
   background-color: #C4FF33;
   border-radius: 1.5em 1.5em 0 1.5em;
   padding: 0.7em 1.2em;
+  width: max-content;
+  margin-left: auto;
 }
 
 .messages-value {
