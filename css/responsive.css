@@ -21,6 +21,11 @@
 
   .contact-container {
     display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    z-index: 100;
   }
 
   .chat-container {
@@ -38,5 +43,19 @@
     padding: 0.3em;
     font-size: 1.2em;
     z-index: 100;
+  }
+}
+
+@media screen and (max-height: 470px) {
+  .chat-header {
+    height: 15%;
+  }
+
+  .messages-container {
+    height: 72%;
+  }
+
+  .chat-input-container {
+    height: 13%;
   }
 }

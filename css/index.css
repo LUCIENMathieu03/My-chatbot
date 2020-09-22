@@ -16,7 +16,7 @@ body, html {
 .chatbot-app {
   display: flex;
   width: 95vw;
-  height: 37.5em;
+  height: 95vh;
   background-color: #FFF;
   border-radius: 1.5em;
   overflow: hidden;
@@ -87,11 +87,14 @@ body, html {
   width: 100%;
   display: flex;
   padding: 1em 1em;
-  width: 14em;
 }
 
 .contact-users-item:hover {
-  background-color: #D8D8D8;
+  background-color: #EEE;
+}
+
+.contact-users-active {
+  background-color: #EEE;
 }
 
 .contact-users-avatar {
@@ -108,13 +111,6 @@ body, html {
   display: flex;
   align-items: center;
   width: 8em;
-}
-
-.user-contacts--items {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  padding: 3px;
 }
 
 .toggle-contact {
@@ -191,21 +187,38 @@ body, html {
 
 .messages-item {
   margin-bottom: 1em;
-  padding: 0.7em 1.2em;
   max-width: 40%;
 }
 
 .messages-item--received {
-  background-color: #D8D8D8;
   text-align: left;
+}
+
+.messages-item--received > p {
   border-radius: 1.5em 1.5em 1.5em 0;
+  background-color: #EEE;
+  padding: 0.7em 1.2em;
 }
 
 .messages-item--sent {
-  background-color: #C4FF33;
   text-align: right;
   align-self: flex-end;
+}
+
+.messages-item--sent > p {
+  background-color: #C4FF33;
   border-radius: 1.5em 1.5em 0 1.5em;
+  padding: 0.7em 1.2em;
+}
+
+.messages-value {
+  margin-bottom: 0.1em;
+}
+
+.messages-date {
+  font-size: 0.7em;
+  font-weight: 300;
+  color: #CCC;
 }
 
 .chat-input-container {
@@ -238,6 +251,19 @@ body, html {
   margin-left: 0.7em;
 }
 
-.chat-input-send:hover {
-  background-color: #A7D92B;
+.chat-input-send:hover > i {
+  animation-name: sendButtonAnimation;
+  animation-duration: 500ms;
+}
+
+@keyframes sendButtonAnimation {
+  from {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0.1em);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
