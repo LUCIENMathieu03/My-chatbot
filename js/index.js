@@ -66,9 +66,7 @@ function changeBot(event) {
   activeBot = botID;
 
   changeActiveBot(bot);
-  displayChatHeader();
-  displayMessages();
-  forceScroll();
+  refreshScreen();
 }
 
 /*
@@ -172,6 +170,13 @@ function displayChatHeader() {
   chatHeader.innerHTML = templattedStr;
 }
 
+function refreshScreen() {
+  displayBots();
+  displayChatHeader();
+  displayMessages();
+  forceScroll();
+}
+
 /*
 * Initialisation
 */
@@ -179,10 +184,7 @@ function initialisation() {
   bots.push(new Bot("https://pbs.twimg.com/profile_images/1338985026/Picture_1_400x400.png", "Tyrion Lannister"));
   bots.push(new Bot("https://i.pinimg.com/originals/fd/29/9c/fd299c3743a9679df23f110daf575ee4.jpg", "Arya Stark"));
 
-  forceScroll();
-  displayBots();
-  displayChatHeader();
-  displayMessages();
+  refreshScreen();
 }
 
 var bots = []
