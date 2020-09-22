@@ -205,8 +205,8 @@ function displayBots() {
                 <h3 class="contact-users-name">
                   ${bot.name}
                 </h3>
-                <div class="popUp">
-                  <span class="notifPop">${bot.numberOfResponses}</span>
+                <div class="contact-counter">
+                  ${bot.numberOfResponses} <i class="far fa-envelope-open"></i>
                 </div>
               </div>`;
 
