@@ -27,8 +27,12 @@ function createMessage(message) {
 function getInputValue() {
 		let input = document.querySelector('.chat-input');
 		let inputValue = input.value;
-		createMessage(new message("messages-item--sent", inputValue)); //messages-item--received
+		if(inputValue != ""){
+			createMessage(new message("messages-item--sent", inputValue)); //messages-item--received
 		input.value = "";
+		}
+		
+
 }
 
 function toggleSideBar() {
@@ -64,6 +68,10 @@ function forceScroll() {
 document.querySelector(".toggle-contact").addEventListener("click", toggleSideBar);
 document.querySelector(".contact-users").addEventListener("click", (event) => changeBot(event));
 window.addEventListener('load', forceScroll);
+document.querySelector(".chat-input").addEventListener("change", getInputValue);
+document.querySelector(".chat-input-send").addEventListener("click", getInputValue);
+
+
 
 
 
