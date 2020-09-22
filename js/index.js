@@ -17,6 +17,7 @@ class Bot {
   constructor(avatar, name) {
     this.avatar = avatar;
     this.name = name;
+    this.numberOfResponses = 0;
     this.messages = [];
     this.sentences = new Object();
     this.addMessage = (type, content) => {
@@ -24,6 +25,7 @@ class Bot {
         this.messages.push(new Message("messages-item--sent", content));
       } else {
         this.messages.push(new Message("messages-item--received", content));
+        this.numberOfResponses++;
       }
     }
     this.answer = (value) => {
@@ -75,10 +77,6 @@ function getInputValue() {
   let inputValue = input.value;
 
   input.value = "";
-  var computerScore = document.querySelector('.notifPop');
-  var number = computerScore.innerHTML;
-  number++;
-  computerScore.innerHTML = number;
   return inputValue;
 }
 
@@ -175,11 +173,11 @@ function displayMessages() {
   let messagesContainer = document.querySelector('.messages-container')
   let allMessages = bots[activeBot].messages.map(message => {
     return `<div class="messages-item ${message.type}">
-                <p class="messages-value">
-                      ${message.content}
-                    </p>
-                  <span class="messages-date">${message.time}</span>
-                </div>`;
+              <p class="messages-value">
+                ${message.content}
+              </p>
+              <span class="messages-date">${message.time}</span>
+            </div>`;
   }).join('');
 
   messagesContainer.innerHTML = allMessages;
@@ -207,11 +205,10 @@ function displayBots() {
                 <h3 class="contact-users-name">
                   ${bot.name}
                 </h3>
-              <div class="popUp">
-                <span class="notifPop">0</span>
+                <div class="popUp">
+                  <span class="notifPop">${bot.numberOfResponses}</span>
                 </div>
-                </div>
-               `;
+              </div>`;
 
     id++;
     return str;
