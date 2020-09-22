@@ -7,11 +7,9 @@ index.js
 */
 class Message {
   constructor(type, content) {
-    let date = new Date();
-
       this.type = type;
       this.content = content;
-      this.time = date.getTime();
+      this.time = getFormattedDate();
   }
 }
 
@@ -76,6 +74,28 @@ function changeBot(event) {
 /*
 * View functions
 */
+function getFormattedDate() {
+    let date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
+    if (month < 10) {
+        month = "0" + month;
+    }
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    return `${hours}:${minutes} ${day}/${month}/${year}`;
+}
+
 function forceScroll() {
   let messagesContainer = document.querySelector(".messages-container");
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
