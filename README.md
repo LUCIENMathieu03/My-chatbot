@@ -3,7 +3,7 @@
 ## Chatbot-app 
 It contains all of the chatbot app.
 
-##Contacts
+## Contacts
 Select the bot that you want to chat with.
 
 ## Messages(chat area)
