@@ -18,12 +18,58 @@ class Bot {
     this.avatar = avatar;
     this.name = name;
     this.messages = [];
+    this.sentences = new Object();
+    this.addMessage = (type, content) => {
+      if (type == "sent") {
+        this.messages.push(new Message("messages-item--sent", content));
+      } else {
+        this.messages.push(new Message("messages-item--received", content));
+      }
+    }
+    this.answer = (value) => {
+      let trigger = false;
+
+      Object.keys(this.sentences).forEach(key => {
+        if (value.search(key) != -1) {
+          let newMessage = this.sentences[key]();
+          this.addMessage("received", newMessage);
+          trigger = true;
+        }
+      });
+      if (!trigger) {
+        this.addMessage("received", "Je n'ai pas compris... (essaye d'écrire \"help\")");
+      }
+    }
+    this.help = () => {
+      let helpMessage = "Bonjour, je suis " + this.name;
+      helpMessage += "<br/>Tu peux me demander :<br/>";
+      Object.keys(this.sentences).forEach(key => {
+        if (key == "heure") {
+          helpMessage += "- l'heure<br/>";
+        } else if (key == "temps") {
+          helpMessage += "- le temps qu'il fait";
+        }
+      })
+      this.addMessage("received", helpMessage);
+    }
   }
 }
 
 /*
 * Input messages functions
 */
+function formattedInputValue(value) {
+  let formattedValue = value.toLowerCase();
+  formattedValue = formattedValue.replace('-', ' ');
+  formattedValue = formattedValue.replace(/[!?,.:\/;_]+/g, '');
+  formattedValue = formattedValue.replace(/[éèêë]+/g, 'e');
+  formattedValue = formattedValue.replace(/[àâä]+/g, 'e');
+
+  console.log(formattedValue);
+
+  return formattedValue;
+}
+
 function getInputValue() {
   let input = document.querySelector('.chat-input');
   let inputValue = input.value;
@@ -40,15 +86,13 @@ function handleInput() {
   let inputValue = getInputValue();
 
   if (inputValue != "") {
-    bots[activeBot].messages.push(new Message("messages-item--sent", inputValue));
-    /*
-    * here -> need to call bot function that will analyse the input and answer
-    * bots.answer(inputValue);
-    *  check inputValue
-    *  if it's "quelle heure est-il ?" -> bots.sayTime()
-    *    add a Message in bot messages -> type: messages-item--received / content: actual time
-    */
-    displayMessages();
+    bots[activeBot].addMessage("sent", inputValue);
+    if (formattedInputValue(inputValue) == "help") {
+      bots[activeBot].help();
+    } else {
+      bots[activeBot].answer(formattedInputValue(inputValue));
+    }
+    refreshScreen();
   }
 }
 
@@ -73,29 +117,43 @@ function changeBot(event) {
   refreshScreen();
 }
 
+function botGetTime() {
+  let date = new Date();
+
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let secondes = date.getSeconds();
+
+  return `Il est actuellement ${hours}h${minutes}min${secondes}s.`;
+}
+
+function botGetWeather() {
+  return `Il fait froid. Genre très froid.`;
+}
+
 /*
 * View functions
 */
 function getFormattedDate() {
-    let date = new Date();
+  let date = new Date();
 
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
 
-    if (month < 10) {
-        month = "0" + month;
-    }
-    if (hours < 10) {
-        hours = "0" + hours;
-    }
-    if (minutes < 10) {
-        minutes = "0" + minutes;
-    }
+  if (month < 10) {
+      month = "0" + month;
+  }
+  if (hours < 10) {
+      hours = "0" + hours;
+  }
+  if (minutes < 10) {
+      minutes = "0" + minutes;
+  }
 
-    return `${hours}:${minutes} ${day}/${month}/${year}`;
+  return `${hours}:${minutes} ${day}/${month}/${year}`;
 }
 
 function forceScroll() {
@@ -191,6 +249,14 @@ function refreshScreen() {
 function initialisation() {
   bots.push(new Bot("https://pbs.twimg.com/profile_images/1338985026/Picture_1_400x400.png", "Tyrion Lannister"));
   bots.push(new Bot("https://i.pinimg.com/originals/fd/29/9c/fd299c3743a9679df23f110daf575ee4.jpg", "Arya Stark"));
+
+  bots[0].sentences = {
+    "heure": botGetTime
+  }
+
+  bots[1].sentences = {
+    "temps": botGetWeather
+  }
 
   refreshScreen();
 }
